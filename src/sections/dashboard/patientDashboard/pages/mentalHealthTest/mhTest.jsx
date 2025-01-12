@@ -32,6 +32,8 @@ function PatientMentalHealthDashboard() {
         sectionTwo: 0
     });
 
+    let final_score = 0;
+
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -148,8 +150,54 @@ function PatientMentalHealthDashboard() {
         { id: 2, title: "PHQ-9 Questionnaire", description: "Evaluate depression levels with PHQ-9." },
         { id: 3, title: "Sentiment Analysis", description: "ML Based sentiment analysis of text and audio." },
         { id: 4, title: "Facial Behavior Analysis", description: "Analyzing facial expressions using Computer Vision." }
-    ];    
+    ];
+    
+    const [allScores, setallScores] = useState(null);
+    const [cv, setCV] = useState(null);
 
+    useEffect(() => {
+        const fetchScores = async () => {
+            if (window.ethereum) {
+                const web3Instance = new Web3(window.ethereum);
+                try {
+                    await window.ethereum.enable();
+    
+                    const networkId = await web3Instance.eth.net.getId();
+                    const mentalHealthDeployedNetwork = MentalHealth.networks[networkId];
+    
+                    if (mentalHealthDeployedNetwork) {
+                        const mentalHealthContract = new web3Instance.eth.Contract(
+                            MentalHealth.abi,
+                            mentalHealthDeployedNetwork.address
+                        );
+    
+                        const scores = await mentalHealthContract.methods.getAllScores(testID).call();
+    
+                        console.log("Fetched Scores:", scores);
+                        setallScores({
+                            historyScore: scores[0],
+                            phq9Score: scores[1],
+                            sentimentalScore: scores[2],
+                            videoScore: scores[3],
+                        });
+                        console.log(allScores);
+                    } else {
+                        setError("MentalHealth smart contract not deployed on the detected network.");
+                    }
+                } catch (err) {
+                    console.error(err);
+                    setError("Error fetching scores from MentalHealth contract.");
+                }
+            } else {
+                setError("MetaMask not detected. Please install MetaMask extension.");
+            }
+        };
+    
+        if (currentStep === 4) {
+            fetchScores();
+        }
+    }, [currentStep, testID]);
+    
     if (isLoading) {
         return (
             <div className="w-screen h-screen flex items-center justify-center bg-[#e6eaf0]">
@@ -166,8 +214,24 @@ function PatientMentalHealthDashboard() {
 
     const handleFinish = () => {
         setSession(false);
-        navigate(`/patient/${healthID}/home`);
     };
+
+    // const depScore = () => {
+    //     const weights = {
+    //         history: 0.2,
+    //         phq9: 0.5,
+    //         sentiment: 0.2,
+    //         cv: 0.1
+    //     };
+    
+    //     const totalScore = 
+    //         (weights.history * allScores.historyScore) +
+    //         (weights.phq9 * allScores.phq9Score) +
+    //         (weights.sentiment * allScores.sentimentalScore) +
+    //         (weights.cv * cv.cv_score);
+    
+    //     return Math.round(totalScore * 100);
+    // };
 
     return (
         <>
@@ -208,7 +272,7 @@ function PatientMentalHealthDashboard() {
 
                             <div className="w-full flex flex-row justify-center items-center mb-7">
                                 <div className="w-[450px] rounded-3xl">
-                                    <VideoFeed session={session}/>
+                                    <VideoFeed session={session} cvScore={setCV}/>
                                 </div>
                             </div>
                         </div>

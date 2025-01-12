@@ -76,7 +76,9 @@ function SentimentAnalysis({ step, patientDetails, tID }) {
                     tID, 
                     answers.textResponse, 
                     answers.textTwo,
-                    result
+                    result.ml_s1,
+                    result.ml_s2,
+                    result.score.toString()
                 )
                 .send({ from: patientDetails.walletAddress });
 

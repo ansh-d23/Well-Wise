@@ -3,7 +3,7 @@ import axios from 'axios';
 import Lottie from 'react-lottie';
 import loaderAnimation from "/public/animations/loaderGreen.json";
 
-function VideoFeed({ session }) {
+function VideoFeed({ session, cvScore }) {
     const [sessionActive, setSessionActive] = useState(false);
     const [isVideoLoading, setIsVideoLoading] = useState(false);
 
@@ -43,6 +43,7 @@ function VideoFeed({ session }) {
         try {
             const response = await axios.get('http://localhost:5000/stop_session');
             console.log(response.data);
+            cvScore(response.data);
             setSessionActive(false);
         } catch (error) {
             console.error("Error stopping session: ", error);

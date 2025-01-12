@@ -36,11 +36,15 @@ contract MentalHealth {
     struct SentimentDetails {
         string textSentiment;
         string audioHash;
+        string sentimentOne;
+        string sentimentTwo;
         string score;
     }
 
     struct VideoAnalysis {
-        string blinkCount;
+        string totalBlinkCount;
+        string blinkPerMinute;
+        string cvScore;
     }
 
     struct PatientMHTest {
@@ -67,8 +71,8 @@ contract MentalHealth {
             }),
             mhtcd: mhtChildhoodDetails("", "", "", "", "", "", "", ""),
             mhtphqDetails: mhtPHQ9Details("", "", "", "", "", "", "", "", "", ""),
-            sentimentDetails: SentimentDetails("", "", ""),
-            videoDetails: VideoAnalysis("")
+            sentimentDetails: SentimentDetails("", "", "", "", ""),
+            videoDetails: VideoAnalysis("", "", "")
         });
     }
 
@@ -104,14 +108,26 @@ contract MentalHealth {
         testIDToPatientTest[_testID].mhtphqDetails = mhtphqDetails;
     }
 
-    function initializeSentimentDetails( string memory _testID, string memory _text, string memory _hash, string memory _score ) public {
+    function initializeSentimentDetails( string memory _testID, string memory _text, string memory _hash, string memory _sentimentOne, string memory _sentimentTwo, string memory _score ) public {
         SentimentDetails memory sentimentDetails = SentimentDetails({
             textSentiment: _text,
             audioHash: _hash,
+            sentimentOne: _sentimentOne,
+            sentimentTwo: _sentimentTwo,
             score: _score
         });
 
         testIDToPatientTest[_testID].sentimentDetails = sentimentDetails;
+    }
+
+    function initializeEmotionDetails( string memory _testID, string memory _totalBlink, string memory _blinkPerMinute, string memory _cvScore) public {
+        VideoAnalysis memory EmotionalDetails = VideoAnalysis({
+            totalBlinkCount: _totalBlink,
+            blinkPerMinute: _blinkPerMinute,
+            cvScore: _cvScore
+        });
+
+        testIDToPatientTest[_testID].videoDetails = EmotionalDetails;
     }
 
     function getAllTestIDs(string memory _healthID)  public view  returns (string[] memory _testIDs)  {
@@ -148,20 +164,23 @@ contract MentalHealth {
         );
     }
 
-    function getSentimentDetails(string memory _testID)  public view  returns ( string memory _textSentiment, string memory _audioHash, string memory _score ) {
+    function getSentimentDetails(string memory _testID)  public view  returns ( string memory _textSentiment, string memory _audioHash, string memory _sentimentOne, string memory _sentimentTwo, string memory _score ) {
         SentimentDetails memory details = testIDToPatientTest[_testID].sentimentDetails;
         return (
             details.textSentiment,
             details.audioHash,
+            details.sentimentOne,
+            details.sentimentTwo,
             details.score
         );
     }
 
-    function getAllScores(string memory _testID)  public view  returns (string memory _historyScore, string memory _phq9Score, string memory _sentimentalScore) {
+    function getAllScores(string memory _testID)  public view  returns (string memory _historyScore, string memory _phq9Score, string memory _sentimentalScore, string memory _videoScore) {
         return (
             testIDToPatientTest[_testID].mhtcd.score,
             testIDToPatientTest[_testID].mhtphqDetails.score,
-            testIDToPatientTest[_testID].sentimentDetails.score
+            testIDToPatientTest[_testID].sentimentDetails.score,
+            testIDToPatientTest[_testID].videoDetails.cvScore
         );
     }
 
