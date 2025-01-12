@@ -1027,7 +1027,7 @@
                             "name": "msg",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 2132,
+                            "referencedDeclaration": 2183,
                             "src": "1293:3:0",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_message",
@@ -1223,7 +1223,7 @@
                         "name": "msg",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 2132,
+                        "referencedDeclaration": 2183,
                         "src": "1508:3:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_magic_message",
@@ -1292,7 +1292,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 2132,
+                          "referencedDeclaration": 2183,
                           "src": "1578:3:0",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -1649,10 +1649,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        2135,
-                        2136
+                        2186,
+                        2187
                       ],
-                      "referencedDeclaration": 2136,
+                      "referencedDeclaration": 2187,
                       "src": "1857:7:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
@@ -2175,10 +2175,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        2135,
-                        2136
+                        2186,
+                        2187
                       ],
-                      "referencedDeclaration": 2136,
+                      "referencedDeclaration": 2187,
                       "src": "2430:7:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
@@ -2657,10 +2657,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        2135,
-                        2136
+                        2186,
+                        2187
                       ],
-                      "referencedDeclaration": 2136,
+                      "referencedDeclaration": 2187,
                       "src": "2913:7:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
@@ -2843,7 +2843,7 @@
                                   "name": "abi",
                                   "nodeType": "Identifier",
                                   "overloadedDeclarations": [],
-                                  "referencedDeclaration": 2119,
+                                  "referencedDeclaration": 2170,
                                   "src": "3117:3:0",
                                   "typeDescriptions": {
                                     "typeIdentifier": "t_magic_abi",
@@ -2890,7 +2890,7 @@
                             "name": "keccak256",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 2126,
+                            "referencedDeclaration": 2177,
                             "src": "3107:9:0",
                             "typeDescriptions": {
                               "typeIdentifier": "t_function_keccak256_pure$_t_bytes_memory_ptr_$returns$_t_bytes32_$",
@@ -2946,7 +2946,7 @@
                                   "name": "abi",
                                   "nodeType": "Identifier",
                                   "overloadedDeclarations": [],
-                                  "referencedDeclaration": 2119,
+                                  "referencedDeclaration": 2170,
                                   "src": "3170:3:0",
                                   "typeDescriptions": {
                                     "typeIdentifier": "t_magic_abi",
@@ -2993,7 +2993,7 @@
                             "name": "keccak256",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 2126,
+                            "referencedDeclaration": 2177,
                             "src": "3160:9:0",
                             "typeDescriptions": {
                               "typeIdentifier": "t_function_keccak256_pure$_t_bytes_memory_ptr_$returns$_t_bytes32_$",
@@ -3513,10 +3513,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        2135,
-                        2136
+                        2186,
+                        2187
                       ],
-                      "referencedDeclaration": 2136,
+                      "referencedDeclaration": 2187,
                       "src": "3588:7:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
@@ -4141,10 +4141,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        2135,
-                        2136
+                        2186,
+                        2187
                       ],
-                      "referencedDeclaration": 2136,
+                      "referencedDeclaration": 2187,
                       "src": "4136:7:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
@@ -4768,10 +4768,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        2135,
-                        2136
+                        2186,
+                        2187
                       ],
-                      "referencedDeclaration": 2136,
+                      "referencedDeclaration": 2187,
                       "src": "4679:7:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
@@ -6141,7 +6141,7 @@
                                       "overloadedDeclarations": [
                                         null
                                       ],
-                                      "referencedDeclaration": 2132,
+                                      "referencedDeclaration": 2183,
                                       "type": "msg",
                                       "value": "msg"
                                     },
@@ -6299,7 +6299,7 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 2132,
+                                  "referencedDeclaration": 2183,
                                   "type": "msg",
                                   "value": "msg"
                                 },
@@ -6412,7 +6412,7 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 2132,
+                                  "referencedDeclaration": 2183,
                                   "type": "msg",
                                   "value": "msg"
                                 },
@@ -6641,10 +6641,10 @@
                                 }
                               ],
                               "overloadedDeclarations": [
-                                2135,
-                                2136
+                                2186,
+                                2187
                               ],
-                              "referencedDeclaration": 2136,
+                              "referencedDeclaration": 2187,
                               "type": "function (bool,string memory) pure",
                               "value": "require"
                             },
@@ -7171,10 +7171,10 @@
                                 }
                               ],
                               "overloadedDeclarations": [
-                                2135,
-                                2136
+                                2186,
+                                2187
                               ],
-                              "referencedDeclaration": 2136,
+                              "referencedDeclaration": 2187,
                               "type": "function (bool,string memory) pure",
                               "value": "require"
                             },
@@ -7652,10 +7652,10 @@
                                 }
                               ],
                               "overloadedDeclarations": [
-                                2135,
-                                2136
+                                2186,
+                                2187
                               ],
-                              "referencedDeclaration": 2136,
+                              "referencedDeclaration": 2187,
                               "type": "function (bool,string memory) pure",
                               "value": "require"
                             },
@@ -7966,7 +7966,7 @@
                                       "overloadedDeclarations": [
                                         null
                                       ],
-                                      "referencedDeclaration": 2126,
+                                      "referencedDeclaration": 2177,
                                       "type": "function (bytes memory) pure returns (bytes32)",
                                       "value": "keccak256"
                                     },
@@ -8012,7 +8012,7 @@
                                               "overloadedDeclarations": [
                                                 null
                                               ],
-                                              "referencedDeclaration": 2119,
+                                              "referencedDeclaration": 2170,
                                               "type": "abi",
                                               "value": "abi"
                                             },
@@ -8092,7 +8092,7 @@
                                       "overloadedDeclarations": [
                                         null
                                       ],
-                                      "referencedDeclaration": 2126,
+                                      "referencedDeclaration": 2177,
                                       "type": "function (bytes memory) pure returns (bytes32)",
                                       "value": "keccak256"
                                     },
@@ -8138,7 +8138,7 @@
                                               "overloadedDeclarations": [
                                                 null
                                               ],
-                                              "referencedDeclaration": 2119,
+                                              "referencedDeclaration": 2170,
                                               "type": "abi",
                                               "value": "abi"
                                             },
@@ -8616,10 +8616,10 @@
                                 }
                               ],
                               "overloadedDeclarations": [
-                                2135,
-                                2136
+                                2186,
+                                2187
                               ],
-                              "referencedDeclaration": 2136,
+                              "referencedDeclaration": 2187,
                               "type": "function (bool,string memory) pure",
                               "value": "require"
                             },
@@ -9276,10 +9276,10 @@
                                 }
                               ],
                               "overloadedDeclarations": [
-                                2135,
-                                2136
+                                2186,
+                                2187
                               ],
-                              "referencedDeclaration": 2136,
+                              "referencedDeclaration": 2187,
                               "type": "function (bool,string memory) pure",
                               "value": "require"
                             },
@@ -9910,10 +9910,10 @@
                                 }
                               ],
                               "overloadedDeclarations": [
-                                2135,
-                                2136
+                                2186,
+                                2187
                               ],
-                              "referencedDeclaration": 2136,
+                              "referencedDeclaration": 2187,
                               "type": "function (bool,string memory) pure",
                               "value": "require"
                             },
@@ -10348,12 +10348,12 @@
     "5777": {
       "events": {},
       "links": {},
-      "address": "0x56974313F4f7d35767576c9E95A00886d5B9335c",
-      "transactionHash": "0xfe0bb5eb44174f2c47ce70313d5f81497cd69c4c25431db9f44c2e0066b529f6"
+      "address": "0xD8f8a48a59B9562342F8c746D79C4ccA778dFbfa",
+      "transactionHash": "0x1226ac7b1d71ad276452837a576dfe03d8cff5ccb4f32741f68d9d8e9e3c977a"
     }
   },
   "schemaVersion": "3.4.16",
-  "updatedAt": "2025-01-12T01:18:24.104Z",
+  "updatedAt": "2025-01-12T07:09:34.841Z",
   "networkType": "ethereum",
   "devdoc": {
     "methods": {}

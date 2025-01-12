@@ -19,6 +19,9 @@ import Header from "./sections/navigation/header/header";
 import Footer from "./sections/navigation/footer/footer";
 import TestDashboard from "./sections/dashboard/patientDashboard/pages/mentalHealthTest/testDashboard";
 
+import Report from "./sections/dashboard/patientDashboard/pages/mentalHealthTest/report";
+import ChatBotComponent from "./sections/dashboard/patientDashboard/pages/chatBot";
+
 function HomeRendering() {
     return (
         <>
@@ -42,12 +45,14 @@ function AppRoutes() {
 
                 <Route path="/patient/:healthID" element={<PatientDashboardLayout />}>
                     <Route path='home' element={<PatientHome />} />
-                    <Route path='appointments' element={<PatientAppointments />} />
+                    <Route path='appointments' element={<ChatBotComponent />} />
                     <Route path='profile' element={<PatientProfile />} />
                     <Route path="mht/:testID" element={<TestDashboard />}/>
                 </Route>
 
                 <Route path="/patient/:healthID/takeTest" element={<MentalHealthTest />}/>
+
+                <Route path="/patient/ack/:healthID/:testID" element={<Report />}/>
 
                 <Route path="/doctor/:licenseNumber" element={<DoctorDashboard />} />
                 <Route path="/dispensary/:licenseNumber" element={<DispensaryDashboard />} />

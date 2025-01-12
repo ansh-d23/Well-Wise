@@ -16,6 +16,8 @@ import SentimentAnalysis from "./sections/sentimentAnalysis";
 import Disclaimer from "./mhtDisclaimer.jsx";
 import VideoFeed from "./videoFeed.jsx"
 
+import PopUp from "./report.jsx";
+
 function PatientMentalHealthDashboard() {
     const [showDisclaimer, setShowDisclaimer] = useState(true);
     const [isLoading, setIsLoading] = useState(false);
@@ -166,7 +168,6 @@ function PatientMentalHealthDashboard() {
 
     const handleFinish = () => {
         setSession(false);
-        navigate(`/patient/${healthID}/home`);
     };
 
     return (

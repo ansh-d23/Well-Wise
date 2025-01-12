@@ -2,10 +2,14 @@ import React, { useState, useRef } from "react";
 import Web3 from "web3";
 import axios from "axios";
 import MentalHealth from "../../../../../../build/contracts/MentalHealth.json";
+import { Navigate, useNavigate, useParams } from "react-router-dom";
 
-function SentimentAnalysis({ step, patientDetails, tID, submitVideo }) {
+function SentimentAnalysis({ step, patientDetails, tID }) {
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [answers, setAnswers] = useState({ textResponse: "", textTwo: "" });
+
+    const navigate = useNavigate();
+    const {healthID} = useParams();
 
     const questions = [
         {
@@ -45,13 +49,11 @@ function SentimentAnalysis({ step, patientDetails, tID, submitVideo }) {
         e.preventDefault();
     
         try {
-            // Create the payload for sentiment processing
             const payload = {
                 text_1: answers.textResponse,
                 text_2: answers.textTwo,
             };
     
-            // Send sentiment processing request to backend
             const response = await fetch("http://localhost:5000/process_sentiment", {
                 method: "POST",
                 headers: {
@@ -98,13 +100,12 @@ function SentimentAnalysis({ step, patientDetails, tID, submitVideo }) {
                 .send({ from: patientDetails.walletAddress });
     
             console.log("Data successfully stored for sentiment analysis.");
-            
+            navigate(`/patient/ack/${healthID}/${tID}`);
         } catch (error) {
             console.error("Error:", error);
             alert("An error occurred while storing your sentiment analysis answers.");
         }
     };
-    
 
     const progress = ((currentQuestion + 1) / questions.length) * 100;
 

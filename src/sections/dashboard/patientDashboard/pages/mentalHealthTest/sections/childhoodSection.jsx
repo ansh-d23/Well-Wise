@@ -12,31 +12,38 @@ function ChildhoodSection({ step, patientDetails, tID }) {
     const questions = [
         {
             text: "Do you have a family history of depression or other mental health disorders? If yes, please specify.",
-            options: ["No", "Yes, a distant relative", "Yes, an immediate family member"]
+            options: ["No", "Yes, a distant relative", "Yes, an immediate family member"],
+            image: "public/illustration/Screenshot_2025-01-11_at_8.07.47_PM-removebg-preview.png"
         },
         {
             text: "Have you experienced any significant life changes or stressful events recently, such as job loss, family issues, or relationship problems?",
-            options: ["No, nothing significant", "Yes, a minor event", "Yes, a major event"]
+            options: ["No, nothing significant", "Yes, a minor event", "Yes, a major event"],
+            image: "public/illustration/relationshipProblems.jpg"
         },
         {
             text: "How have your sleep patterns been over the past few weeks? (e.g., difficulty falling asleep, staying asleep, or oversleeping)",
-            options: ["I sleep well and feel rested", "I have trouble falling asleep or staying asleep", "I sleep very little or excessively"]
+            options: ["I sleep well and feel rested", "I have trouble falling asleep or staying asleep", "I sleep very little or excessively"],
+            image: "public/animations/sleep.gif"
         },
         {
             text: "Have you noticed any significant changes in your appetite or eating habits recently?",
-            options: ["No, my appetite is normal", "I eat more or less than usual", "I have lost or gained significant weight recently"]
+            options: ["No, my appetite is normal", "I eat more or less than usual", "I have lost or gained significant weight recently"],
+            image: "public/illustration/food.jpg",
         },
         {
             text: "Did you experience bullying or social isolation during your school years? If so, how did it affect you emotionally or socially?",
-            options: ["No, I was well-liked", "A little, but it didn’t affect me much", "Yes, it had a lasting emotional impact"]
+            options: ["No, I was well-liked", "A little, but it didn’t affect me much", "Yes, it had a lasting emotional impact"],
+            image: "public/illustration/bully.png"
         },
         {
             text: "Do you have a reliable support system of family or friends to talk to when feeling down or stressed?",
-            options: ["Yes, I have a strong support system", "I have some support, but it’s limited", "I feel isolated and have no one to talk to"]
+            options: ["Yes, I have a strong support system", "I have some support, but it’s limited", "I feel isolated and have no one to talk to"],
+            image: "public/illustration/family.png"
         },
         {
             text: "Do you use substances such as alcohol, recreational drugs, or certain medications to cope with stress or emotions? If yes, how frequently?",
-            options: ["No, I don’t use substances", "Occasionally, but not regularly", "Yes, heavily"]
+            options: ["No, I don’t use substances", "Occasionally, but not regularly", "Yes, heavily"],
+            image: "public/animations/Alcohol.gif"
         }
     ];
 
@@ -156,6 +163,9 @@ function ChildhoodSection({ step, patientDetails, tID }) {
                         </div>
                     </div>
                 </div>
+
+                <img src={questions[currentQuestion].image} alt="" />
+
                 <div className="bg-[#eef8f7] rounded-3xl px-6 py-4 flex justify-between items-center">
                     <p className="text-sm text-gray-500">
                         Question {currentQuestion + 1} of {questions.length}

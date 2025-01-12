@@ -53,6 +53,7 @@ contract MentalHealth {
         mhtPHQ9Details mhtphqDetails;
         SentimentDetails sentimentDetails;
         VideoAnalysis videoDetails;
+        string finalScore;
     }
 
     mapping(string => string[]) private healthIDToTestIDs;
@@ -72,7 +73,8 @@ contract MentalHealth {
             mhtcd: mhtChildhoodDetails("", "", "", "", "", "", "", ""),
             mhtphqDetails: mhtPHQ9Details("", "", "", "", "", "", "", "", "", ""),
             sentimentDetails: SentimentDetails("", "", "", "", ""),
-            videoDetails: VideoAnalysis("", "", "")
+            videoDetails: VideoAnalysis("", "", ""),
+            finalScore: ""
         });
     }
 
@@ -130,6 +132,10 @@ contract MentalHealth {
         testIDToPatientTest[_testID].videoDetails = EmotionalDetails;
     }
 
+    function setFinalScore(string memory _testID, string memory _score) public {
+        testIDToPatientTest[_testID].finalScore = _score;
+    }
+
     function getAllTestIDs(string memory _healthID)  public view  returns (string[] memory _testIDs)  {
         return healthIDToTestIDs[_healthID];
     }
@@ -175,12 +181,22 @@ contract MentalHealth {
         );
     }
 
-    function getAllScores(string memory _testID)  public view  returns (string memory _historyScore, string memory _phq9Score, string memory _sentimentalScore, string memory _videoScore) {
+    function getEmotionDetails(string memory _testID) public view returns (string memory _blinkCount, string memory _blinkPerMinute, string memory _cvScore){
+        VideoAnalysis memory vanalysis = testIDToPatientTest[_testID].videoDetails;
+        return (
+            vanalysis.totalBlinkCount,
+            vanalysis.blinkPerMinute,
+            vanalysis.cvScore
+        );
+    }
+
+    function getAllScores(string memory _testID)  public view  returns (string memory _historyScore, string memory _phq9Score, string memory _sentimentalScore, string memory _videoScore, string memory _finalScore) {
         return (
             testIDToPatientTest[_testID].mhtcd.score,
             testIDToPatientTest[_testID].mhtphqDetails.score,
             testIDToPatientTest[_testID].sentimentDetails.score,
-            testIDToPatientTest[_testID].videoDetails.cvScore
+            testIDToPatientTest[_testID].videoDetails.cvScore,
+            testIDToPatientTest[_testID].finalScore
         );
     }
 

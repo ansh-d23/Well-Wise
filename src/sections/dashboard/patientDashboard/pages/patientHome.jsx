@@ -170,17 +170,17 @@ function PatientDashboard() {
                 <div className="w-[500px] h-[550px] text-[#1a5252] bg-[#d4eceb] rounded-[50px] font-albulaHeavy text-3xl">
                     <div className="mt-5 px-14 pt-10">Patient Tests</div>
                     <div className="mt-10">
-                            {testIDS.length > 0 ? (
-                                testIDS.map((testID, index) => (
-                                    <Link to={`/patient/${healthID}/mht/${testID}`}>
-                                        <button key={index} className="w-full h-[70px] font-albulaRegular text-[#1a5252] text-lg py-2 hover:bg-[#e7f3f2] border-2 border-transparent hover:border-[#1a5252] rounded-md mb-2 transition-all" >
-                                            {`Test ID: ${testID}`}
-                                        </button>
-                                    </Link>
-                                ))
-                            ) : (
-                                <div className="text-xl mt-4 text-center">Patient Have Not Gone Through Any Test.</div>
-                            )}
+                        {testIDS.length > 0 ? (
+                            testIDS.map((testID) => (
+                                <Link key={testID} to={`/patient/${healthID}/mht/${testID}`}>
+                                    <button className="w-full h-[70px] font-albulaRegular text-[#1a5252] text-lg py-2 hover:bg-[#e7f3f2] border-2 border-transparent hover:border-[#1a5252] rounded-md mb-2 transition-all">
+                                        {`Test ID: ${testID}`}
+                                    </button>
+                                </Link>
+                            ))
+                        ) : (
+                            <div className="text-xl mt-4 text-center">Patient Have Not Gone Through Any Test.</div>
+                        )}
                     </div>
                 </div>
             </div>
