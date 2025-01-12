@@ -1,8 +1,9 @@
 import React, { useState, useRef } from "react";
 import Web3 from "web3";
+import axios from "axios";
 import MentalHealth from "../../../../../../build/contracts/MentalHealth.json";
 
-function SentimentAnalysis({ step, patientDetails, tID }) {
+function SentimentAnalysis({ step, patientDetails, tID, submitVideo }) {
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [answers, setAnswers] = useState({ textResponse: "", textTwo: "" });
 
@@ -42,13 +43,15 @@ function SentimentAnalysis({ step, patientDetails, tID }) {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
+    
         try {
+            // Create the payload for sentiment processing
             const payload = {
                 text_1: answers.textResponse,
                 text_2: answers.textTwo,
             };
-
+    
+            // Send sentiment processing request to backend
             const response = await fetch("http://localhost:5000/process_sentiment", {
                 method: "POST",
                 headers: {
@@ -56,21 +59,21 @@ function SentimentAnalysis({ step, patientDetails, tID }) {
                 },
                 body: JSON.stringify(payload),
             });
-
+    
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
-
+    
             const result = await response.json();
             console.log("Response from backend:", result);
-
+    
             const web3 = new Web3(window.ethereum);
             const networkId = await web3.eth.net.getId();
             const contract = new web3.eth.Contract(
                 MentalHealth.abi,
                 MentalHealth.networks[networkId].address
             );
-
+    
             await contract.methods
                 .initializeSentimentDetails(
                     tID, 
@@ -81,14 +84,27 @@ function SentimentAnalysis({ step, patientDetails, tID }) {
                     result.score.toString()
                 )
                 .send({ from: patientDetails.walletAddress });
-
+    
+            const stopResponse = await axios.get('http://localhost:5000/stop_session');
+            console.log(stopResponse.data);
+    
+            await contract.methods
+                .initializeEmotionDetails(
+                    tID, 
+                    stopResponse.data.total_blinks.toString(),
+                    stopResponse.data.blinks.toString(),
+                    stopResponse.data.cv_score.toString()
+                )
+                .send({ from: patientDetails.walletAddress });
+    
             console.log("Data successfully stored for sentiment analysis.");
-            step(4);
+            
         } catch (error) {
             console.error("Error:", error);
             alert("An error occurred while storing your sentiment analysis answers.");
         }
     };
+    
 
     const progress = ((currentQuestion + 1) / questions.length) * 100;
 

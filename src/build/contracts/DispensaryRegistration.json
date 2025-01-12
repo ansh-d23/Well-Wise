@@ -10348,12 +10348,12 @@
     "5777": {
       "events": {},
       "links": {},
-      "address": "0x8FD05db2a508cbD15BA3513d380907adb05c90EC",
-      "transactionHash": "0x7346715bdbf8f0e1767ea3c097577bd5b1edb6b50cff02f892fdda3b203db84d"
+      "address": "0x56974313F4f7d35767576c9E95A00886d5B9335c",
+      "transactionHash": "0xfe0bb5eb44174f2c47ce70313d5f81497cd69c4c25431db9f44c2e0066b529f6"
     }
   },
   "schemaVersion": "3.4.16",
-  "updatedAt": "2025-01-11T22:57:01.980Z",
+  "updatedAt": "2025-01-12T01:18:24.104Z",
   "networkType": "ethereum",
   "devdoc": {
     "methods": {}
