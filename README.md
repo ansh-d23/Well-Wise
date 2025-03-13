@@ -43,7 +43,7 @@ The platform’s mental health detection system is a standout feature, consistin
 
 ## Future Plans
 - Develop a counselor-driven model for mental Health detection and prevention.
-- Improve the ML and OpenCV model for better accuracy in document type verification.
+- Improve the ML and OpenCV model for better accuracy in real-time analysis of users.
 - Enhance the user interface and integrate new technologies to improve the overall accuracy of the project.
 
 ## License
